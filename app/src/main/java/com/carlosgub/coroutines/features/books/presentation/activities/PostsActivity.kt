@@ -30,21 +30,24 @@ class PostsActivity : AppCompatActivity(), RVPostAdapter.Listener {
             adapter = mAdapter
         }
 
-        viewModel.getPosts()
+//        viewModel.getPosts()
+        tvProducts.setOnClickListener {
+            viewModel.getProductsByName("bolpen", 0)
+        }
     }
 
     private fun observeViewModel(){
         //Obtener los Posts
-        viewModel.viewState.observe(this@PostsActivity, {
+        viewModel.viewState.observe(this@PostsActivity) {
             when (it) {
                 is PostsVS.AddPost -> {
                     mAdapter.add(it.postVM)
                 }
-                is PostsVS.ShowLoader ->{
-                    if(it.showLoader){
+                is PostsVS.ShowLoader -> {
+                    if (it.showLoader) {
                         pbPosts.visibility = View.VISIBLE
                         rvPost.visibility = View.GONE
-                    }else{
+                    } else {
                         pbPosts.visibility = View.GONE
                         rvPost.visibility = View.VISIBLE
                     }
@@ -54,7 +57,7 @@ class PostsActivity : AppCompatActivity(), RVPostAdapter.Listener {
                 }
             }
 
-        })
+        }
     }
 
     override fun onPostClicked(id: Int) {

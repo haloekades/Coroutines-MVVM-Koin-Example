@@ -1,6 +1,7 @@
 package com.carlosgub.coroutines.features.books.data.repository
 
 import com.carlosgub.coroutines.features.books.data.datasource.rest.PostRestDataStore
+import com.carlosgub.coroutines.features.books.data.datasource.rest.entities.ProductEntity
 import com.carlosgub.coroutines.features.books.data.mapper.PostDataMapper
 import com.carlosgub.coroutines.features.books.domain.model.PostEntity
 import com.carlosgub.coroutines.features.books.domain.repository.PostRepository
@@ -23,5 +24,10 @@ class PostRepositoryImpl(
     override fun getPostById(id: String): Flow<PostEntity> =
         postRestDataStore.getPostById(id = id).map {
             mPostDataMapper.map(it)
+        }
+
+    override fun getProducts(productName: String, start: Int): Flow<List<ProductEntity>> =
+        postRestDataStore.getProducts(productName, start).map {
+            it.data
         }
 }

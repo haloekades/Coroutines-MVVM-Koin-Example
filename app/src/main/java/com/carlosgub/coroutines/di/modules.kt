@@ -4,6 +4,7 @@ import com.carlosgub.coroutines.features.books.data.datasource.rest.PostRestData
 import com.carlosgub.coroutines.features.books.data.repository.PostRepositoryImpl
 import com.carlosgub.coroutines.features.books.domain.interactor.GetPostByIdInteractor
 import com.carlosgub.coroutines.features.books.domain.interactor.GetPostsInteractor
+import com.carlosgub.coroutines.features.books.domain.interactor.GetProductsInteractor
 import com.carlosgub.coroutines.features.books.domain.repository.PostRepository
 import com.carlosgub.coroutines.features.books.presentation.viewmodel.PostViewModel
 import com.carlosgub.coroutines.features.books.presentation.viewmodel.PostsViewModel
@@ -14,7 +15,7 @@ private val postModule = module {
 
     //region ViewModel
     viewModel {
-        PostsViewModel(get())
+        PostsViewModel(get(), get())
     }
     viewModel {
         PostViewModel(get())
@@ -29,6 +30,11 @@ private val postModule = module {
     }
     single {
         GetPostByIdInteractor(
+            get()
+        )
+    }
+    single {
+        GetProductsInteractor(
             get()
         )
     }
