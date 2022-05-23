@@ -1,4 +1,4 @@
-package com.ekades.coroutines.core.platform
+package com.ekades.products.core.platform
 
 import androidx.lifecycle.ViewModel
 import org.koin.core.KoinComponent

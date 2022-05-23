@@ -1,12 +1,12 @@
-package com.ekades.coroutines.features.searchproducts.domain.interactor
+package com.ekades.products.features.searchproducts.domain.interactor
 
-import com.ekades.coroutines.core.interactor.Interactor
-import com.ekades.coroutines.features.searchproducts.data.datasource.rest.entities.ProductEntity
-import com.ekades.coroutines.features.searchproducts.domain.repository.PostRepository
+import com.ekades.products.core.interactor.Interactor
+import com.ekades.products.features.searchproducts.data.datasource.rest.entities.ProductEntity
+import com.ekades.products.features.searchproducts.domain.repository.ProductRepository
 import kotlinx.coroutines.flow.Flow
 
 class GetProductsInteractor(
-    private val postRepository: PostRepository
+    private val postRepository: ProductRepository
 ) : Interactor<GetProductsInteractor.Params, Flow<List<ProductEntity>>> {
 
     override fun execute(params: Params): Flow<List<ProductEntity>> {

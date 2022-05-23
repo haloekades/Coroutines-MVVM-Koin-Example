@@ -1,4 +1,4 @@
-package com.ekades.coroutines.core.utils
+package com.ekades.products.core.utils
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

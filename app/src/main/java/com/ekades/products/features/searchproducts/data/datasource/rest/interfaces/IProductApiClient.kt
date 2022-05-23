@@ -1,10 +1,10 @@
-package com.ekades.coroutines.features.searchproducts.data.datasource.rest.interfaces
+package com.ekades.products.features.searchproducts.data.datasource.rest.interfaces
 
-import com.ekades.coroutines.features.searchproducts.data.datasource.rest.response.ProductsResponseData
+import com.ekades.products.features.searchproducts.data.datasource.rest.response.ProductsResponseData
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface IPostApiClient {
+interface IProductApiClient {
 
     @GET("/search/v1/product")
     suspend fun getProducts(

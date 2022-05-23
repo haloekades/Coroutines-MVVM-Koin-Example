@@ -1,6 +1,6 @@
-package com.ekades.coroutines.features.searchproducts.presentation.viewmodel.state
+package com.ekades.products.features.searchproducts.presentation.viewmodel.state
 
-import com.ekades.coroutines.features.searchproducts.presentation.model.ProductVM
+import com.ekades.products.features.searchproducts.presentation.model.ProductVM
 
 sealed class ProductsVS {
     class AddProduct(val productsVM: List<ProductVM>) : ProductsVS()

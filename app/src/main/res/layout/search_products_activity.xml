@@ -13,6 +13,7 @@
         android:layout_margin="@dimen/medium_margin"
         android:background="@drawable/bg_search_product"
         android:drawableEnd="@android:drawable/ic_menu_search"
+        android:drawableTint="@color/darkGrey"
         android:hint="@string/search_product"
         android:padding="@dimen/medium_margin"
         app:layout_constraintEnd_toEndOf="parent"

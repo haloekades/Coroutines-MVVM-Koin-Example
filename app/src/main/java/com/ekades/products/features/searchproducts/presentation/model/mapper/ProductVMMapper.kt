@@ -1,8 +1,8 @@
-package com.ekades.coroutines.features.searchproducts.presentation.model.mapper
+package com.ekades.products.features.searchproducts.presentation.model.mapper
 
-import com.ekades.coroutines.core.mapper.Mapper
-import com.ekades.coroutines.features.searchproducts.data.datasource.rest.entities.ProductEntity
-import com.ekades.coroutines.features.searchproducts.presentation.model.ProductVM
+import com.ekades.products.core.mapper.Mapper
+import com.ekades.products.features.searchproducts.data.datasource.rest.entities.ProductEntity
+import com.ekades.products.features.searchproducts.presentation.model.ProductVM
 
 class ProductVMMapper : Mapper<ProductEntity, ProductVM> {
 

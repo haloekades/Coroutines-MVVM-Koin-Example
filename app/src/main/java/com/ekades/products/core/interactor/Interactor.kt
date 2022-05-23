@@ -1,4 +1,4 @@
-package com.ekades.coroutines.core.interactor
+package com.ekades.products.core.interactor
 
 interface Interactor<in Params, out Type> {
 

@@ -1,10 +1,10 @@
-package com.ekades.coroutines.di
+package com.ekades.products.di
 
-import com.ekades.coroutines.features.searchproducts.data.datasource.rest.PostRestDataStore
-import com.ekades.coroutines.features.searchproducts.data.repository.PostRepositoryImpl
-import com.ekades.coroutines.features.searchproducts.domain.interactor.GetProductsInteractor
-import com.ekades.coroutines.features.searchproducts.domain.repository.PostRepository
-import com.ekades.coroutines.features.searchproducts.presentation.viewmodel.PostsViewModel
+import com.ekades.products.features.searchproducts.data.datasource.rest.ProductRestDataStore
+import com.ekades.products.features.searchproducts.data.repository.ProductRepositoryImpl
+import com.ekades.products.features.searchproducts.domain.interactor.GetProductsInteractor
+import com.ekades.products.features.searchproducts.domain.repository.ProductRepository
+import com.ekades.products.features.searchproducts.presentation.viewmodel.SearchProductViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -12,7 +12,7 @@ private val productModule = module {
 
     //region ViewModel
     viewModel {
-        PostsViewModel(get())
+        SearchProductViewModel(get())
     }
     //endregion
 
@@ -25,14 +25,14 @@ private val productModule = module {
     //endregion
 
     //region Repository
-    single<PostRepository> {
-        PostRepositoryImpl(get())
+    single<ProductRepository> {
+        ProductRepositoryImpl(get())
     }
     //endregion
 
     //region Datastore
     single {
-        PostRestDataStore()
+        ProductRestDataStore()
     }
     //endregion
 }

@@ -1,4 +1,4 @@
-package com.ekades.coroutines.core.mapper
+package com.ekades.products.core.mapper
 
 
 interface Mapper<in T, out R> {

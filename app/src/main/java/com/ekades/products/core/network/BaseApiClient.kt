@@ -1,6 +1,6 @@
-package com.ekades.coroutines.core.network
+package com.ekades.products.core.network
 
-import com.ekades.coroutines.BuildConfig
+import com.ekades.products.BuildConfig
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Request

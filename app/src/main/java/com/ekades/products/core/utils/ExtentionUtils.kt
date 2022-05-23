@@ -1,4 +1,4 @@
-package com.ekades.coroutines.core.utils
+package com.ekades.products.core.utils
 
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView

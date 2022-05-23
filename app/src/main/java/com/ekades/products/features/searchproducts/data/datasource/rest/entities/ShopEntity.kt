@@ -1,4 +1,4 @@
-package com.ekades.coroutines.features.searchproducts.data.datasource.rest.entities
+package com.ekades.products.features.searchproducts.data.datasource.rest.entities
 
 data class ShopEntity(
     val id: Long?,

@@ -1,4 +1,4 @@
-package com.ekades.coroutines.features.searchproducts.presentation.model
+package com.ekades.products.features.searchproducts.presentation.model
 
 data class ProductVM(
     val id: Long?,

@@ -1,4 +1,4 @@
-package com.ekades.coroutines.features.searchproducts.presentation.activities
+package com.ekades.products.features.searchproducts.presentation.activities
 
 import android.os.Bundle
 import android.text.Editable
@@ -7,28 +7,28 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.ekades.coroutines.R
-import com.ekades.coroutines.core.utils.RecyclerViewInfiniteScrollListener
-import com.ekades.coroutines.features.searchproducts.presentation.adapters.RVProductAdapter
-import com.ekades.coroutines.features.searchproducts.presentation.viewmodel.PostsViewModel
-import com.ekades.coroutines.features.searchproducts.presentation.viewmodel.state.ProductsVS
-import kotlinx.android.synthetic.main.posts_activity.*
+import com.ekades.products.R
+import com.ekades.products.core.utils.RecyclerViewInfiniteScrollListener
+import com.ekades.products.features.searchproducts.presentation.adapters.RVProductAdapter
+import com.ekades.products.features.searchproducts.presentation.viewmodel.SearchProductViewModel
+import com.ekades.products.features.searchproducts.presentation.viewmodel.state.ProductsVS
+import kotlinx.android.synthetic.main.search_products_activity.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class PostsActivity : AppCompatActivity() {
+class SearchProductActivity : AppCompatActivity() {
 
-    private val viewModel: PostsViewModel by viewModel()
+    private val viewModel: SearchProductViewModel by viewModel()
     private val mAdapter = RVProductAdapter()
 
     @ExperimentalCoroutinesApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.posts_activity)
+        setContentView(R.layout.search_products_activity)
         observeViewModel()
         setSearchListener()
         rvProducts.apply {
-            layoutManager = LinearLayoutManager(this@PostsActivity)
+            layoutManager = LinearLayoutManager(this@SearchProductActivity)
             adapter = mAdapter
             addOnScrollListener(RecyclerViewInfiniteScrollListener {
                 if (viewModel.isMaxProduct.not() && pbProducts.visibility == View.GONE) {
@@ -57,7 +57,7 @@ class PostsActivity : AppCompatActivity() {
 
     private fun observeViewModel() {
         //Obtener los Posts
-        viewModel.viewState.observe(this@PostsActivity) {
+        viewModel.viewState.observe(this@SearchProductActivity) {
             when (it) {
                 is ProductsVS.AddProduct -> {
                     mAdapter.add(it.productsVM)

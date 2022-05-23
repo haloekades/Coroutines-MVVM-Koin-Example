@@ -1,4 +1,4 @@
-package com.ekades.coroutines.features.searchproducts.presentation.adapters
+package com.ekades.products.features.searchproducts.presentation.adapters
 
 import android.graphics.Paint
 import android.view.LayoutInflater
@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.ekades.coroutines.R
-import com.ekades.coroutines.features.searchproducts.presentation.model.ProductVM
+import com.ekades.products.R
+import com.ekades.products.features.searchproducts.presentation.model.ProductVM
 import kotlinx.android.synthetic.main.product_item.view.*
 
 class RVProductAdapter : RecyclerView.Adapter<RVProductAdapter.ViewHolder>() {

@@ -1,21 +1,21 @@
-package com.ekades.coroutines.features.searchproducts.presentation.viewmodel
+package com.ekades.products.features.searchproducts.presentation.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.ekades.coroutines.core.platform.BaseViewModel
-import com.ekades.coroutines.core.utils.io
-import com.ekades.coroutines.core.utils.ui
-import com.ekades.coroutines.features.searchproducts.domain.interactor.GetProductsInteractor
-import com.ekades.coroutines.features.searchproducts.presentation.model.mapper.ProductVMMapper
-import com.ekades.coroutines.features.searchproducts.presentation.viewmodel.state.ProductsVS
+import com.ekades.products.core.platform.BaseViewModel
+import com.ekades.products.core.utils.io
+import com.ekades.products.core.utils.ui
+import com.ekades.products.features.searchproducts.domain.interactor.GetProductsInteractor
+import com.ekades.products.features.searchproducts.presentation.model.mapper.ProductVMMapper
+import com.ekades.products.features.searchproducts.presentation.viewmodel.state.ProductsVS
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-class PostsViewModel(
+class SearchProductViewModel(
     private val getProductsInteractor: GetProductsInteractor
 ) : BaseViewModel() {
 

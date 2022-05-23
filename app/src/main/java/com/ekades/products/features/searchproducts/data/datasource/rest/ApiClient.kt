@@ -1,6 +1,6 @@
-package com.ekades.coroutines.features.searchproducts.data.datasource.rest
+package com.ekades.products.features.searchproducts.data.datasource.rest
 
-import com.ekades.coroutines.core.network.BaseApiClient
-import com.ekades.coroutines.features.searchproducts.data.datasource.rest.interfaces.IPostApiClient
+import com.ekades.products.core.network.BaseApiClient
+import com.ekades.products.features.searchproducts.data.datasource.rest.interfaces.IProductApiClient
 
-object PostApiClient : BaseApiClient<IPostApiClient>(IPostApiClient::class.java)
+object PostApiClient : BaseApiClient<IProductApiClient>(IProductApiClient::class.java)
