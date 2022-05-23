@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cvProductItem"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/small_margin"
+    android:layout_marginVertical="@dimen/very_small_margin"
+    android:orientation="vertical"
+    app:cardUseCompatPadding="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/small_margin">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivProduct"
+            android:layout_width="@dimen/image_item_size"
+            android:layout_height="@dimen/image_item_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvProductName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/medium_margin"
+            android:ellipsize="end"
+            android:maxLines="2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivProduct"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvProductPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/very_small_margin"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/tvProductName"
+            app:layout_constraintTop_toBottomOf="@id/tvProductName" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/discountView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:constraint_referenced_ids="tvDiscountProduct, tvOriginalPrice" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDiscountProduct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/very_small_margin"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintStart_toStartOf="@id/tvProductPrice"
+            app:layout_constraintTop_toBottomOf="@id/tvProductPrice" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvOriginalPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/very_small_margin"
+            app:layout_constraintBottom_toBottomOf="@id/tvDiscountProduct"
+            app:layout_constraintStart_toEndOf="@id/tvDiscountProduct"
+            app:layout_constraintTop_toTopOf="@id/tvDiscountProduct" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivBadges"
+            android:layout_width="@dimen/badge_size"
+            android:layout_height="@dimen/badge_size"
+            app:layout_constraintBottom_toBottomOf="@id/tvProductCity"
+            app:layout_constraintStart_toStartOf="@id/tvProductPrice"
+            app:layout_constraintTop_toTopOf="@id/tvProductCity" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvProductCity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/very_small_margin"
+            android:layout_marginTop="@dimen/small_margin"
+            app:layout_constraintStart_toEndOf="@id/ivBadges"
+            app:layout_constraintTop_toBottomOf="@id/tvOriginalPrice" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

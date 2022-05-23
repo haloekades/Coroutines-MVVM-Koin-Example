@@ -40,7 +40,7 @@ class RVPostAdapter : RecyclerView.Adapter<RVPostAdapter.ViewHolder>() {
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(postVM: PostVM) {
             itemView.tvPostItemTitle.text = postVM.title
-            itemView.cvPostItem.setOnClickListener {
+            itemView.cvProductItem.setOnClickListener {
                 mListener?.onPostClicked(postVM.id ?: 1)
             }
         }

@@ -15,7 +15,7 @@ private val postModule = module {
 
     //region ViewModel
     viewModel {
-        PostsViewModel(get(), get())
+        PostsViewModel(get())
     }
     viewModel {
         PostViewModel(get())
