@@ -1,9 +1,10 @@
 <resources>
-    <string name="app_name">Coroutines Example</string>
+    <string name="app_name">Search Product</string>
     <!--region Post Activity-->
     <string name="post_text">%s\n\n%s</string>
     <!--endregion-->
     <string name="value_percentage">%s%%</string>
     <string name="search_product">Cari Produk</string>
     <string name="product_not_found">Product Tidak ditemukan</string>
+    <string name="use_gql">Use GQL</string>
 </resources>

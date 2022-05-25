@@ -1,15 +1,21 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-kapt'
+//apply plugin: 'com.android.application'
+//apply plugin: 'kotlin-android'
+//apply plugin: 'kotlin-android-extensions'
+//apply plugin: 'kotlin-kapt'
+plugins {
+    id("com.android.application")
+    id("kotlin-android")
+    id("kotlin-android-extensions")
+    id("com.apollographql.apollo3").version("3.3.0")
+}
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 30
     buildToolsVersion "29.0.2"
     defaultConfig {
-        applicationId "com.carlosgub.coroutines"
+        applicationId "com.ekades.products"
         minSdkVersion 21
-        targetSdkVersion 29
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -28,6 +34,9 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 }
 
@@ -62,11 +71,17 @@ dependencies {
 
     //GLIDE
     implementation 'com.github.bumptech.glide:glide:4.13.0'
-//    annotationProcessor 'com.github.bumptech.glide:compiler:4.13.0'
+
+    //APPOLO
+    implementation("com.apollographql.apollo3:apollo-runtime:3.3.0")
 
     //TESTING
     testImplementation 'junit:junit:4.12'
     testImplementation 'android.arch.core:core-testing:1.1.1'
     testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.3.2'
     testImplementation 'io.mockk:mockk:1.9.3'
+}
+
+apollo {
+    packageName.set("com.ekades.products")
 }

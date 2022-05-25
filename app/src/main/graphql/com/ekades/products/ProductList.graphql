@@ -1,0 +1,26 @@
+query SearchProduct($params: String) {
+    searchProduct(params: $params) {
+        count
+        products {
+            id
+            name
+            image_url
+            price
+            original_price
+            discount_percentage
+            stock
+            count_review
+            rating
+            shop {
+                name
+                location
+                city
+            }
+            badges {
+                title
+                image_url
+                show
+            }
+        }
+    }
+}

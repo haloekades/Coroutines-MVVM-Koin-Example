@@ -13,7 +13,6 @@ import com.ekades.products.features.searchproducts.presentation.adapters.RVProdu
 import com.ekades.products.features.searchproducts.presentation.viewmodel.SearchProductViewModel
 import com.ekades.products.features.searchproducts.presentation.viewmodel.state.ProductsVS
 import kotlinx.android.synthetic.main.search_products_activity.*
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SearchProductActivity : AppCompatActivity() {
@@ -21,20 +20,31 @@ class SearchProductActivity : AppCompatActivity() {
     private val viewModel: SearchProductViewModel by viewModel()
     private val mAdapter = RVProductAdapter()
 
-    @ExperimentalCoroutinesApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.search_products_activity)
         observeViewModel()
+        setupSwitchCompat()
         setSearchListener()
         rvProducts.apply {
             layoutManager = LinearLayoutManager(this@SearchProductActivity)
             adapter = mAdapter
             addOnScrollListener(RecyclerViewInfiniteScrollListener {
                 if (viewModel.isMaxProduct.not() && pbProducts.visibility == View.GONE) {
-                    viewModel.getProductsByName(etSearchProduct.text.toString())
+                    viewModel.getProducts(
+                        this@SearchProductActivity,
+                        etSearchProduct.text.toString()
+                    )
                 }
             })
+        }
+    }
+
+    private fun setupSwitchCompat() {
+        switchApi.setOnCheckedChangeListener { _, isChecked ->
+            viewModel.isUseGraphQL = isChecked
+            mAdapter.clear()
+            viewModel.doSearchProduct(this@SearchProductActivity, etSearchProduct.text.toString())
         }
     }
 
@@ -43,7 +53,7 @@ class SearchProductActivity : AppCompatActivity() {
             override fun afterTextChanged(s: Editable?) {
                 if (s.toString().isNotBlank()) {
                     mAdapter.clear()
-                    viewModel.doSearchProduct(s.toString())
+                    viewModel.doSearchProduct(this@SearchProductActivity, s.toString())
                 }
             }
 
@@ -56,7 +66,6 @@ class SearchProductActivity : AppCompatActivity() {
     }
 
     private fun observeViewModel() {
-        //Obtener los Posts
         viewModel.viewState.observe(this@SearchProductActivity) {
             when (it) {
                 is ProductsVS.AddProduct -> {

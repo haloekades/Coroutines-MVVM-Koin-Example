@@ -1,0 +1,65 @@
+type Query {
+  searchProduct(params: String): SearchProductResponse!
+
+  launches(pageSize: Int, after: String): LaunchConnection!
+}
+
+type SearchProductResponse {
+    count : Int!
+
+    products : [Product]
+}
+
+type Product {
+    id: ID!
+
+    name: String!
+
+    image_url: String!
+
+    price: String!
+
+    original_price: String!
+
+    discount_percentage: Int!
+
+    stock: Int!
+
+    count_review: Int!
+
+    rating: Int!
+
+    shop: Shop!
+
+    badges: [Badges]!
+}
+
+type Shop {
+    name: String!
+
+    location: String!
+
+    city: String!
+}
+
+type Badges {
+    title: String!
+
+    image_url: String!
+
+    show: Boolean!
+}
+
+type LaunchConnection {
+  cursor: String!
+
+  hasMore: Boolean!
+
+  launches: [Launch]!
+}
+
+type Launch {
+  id: ID!
+
+  site: String
+}
